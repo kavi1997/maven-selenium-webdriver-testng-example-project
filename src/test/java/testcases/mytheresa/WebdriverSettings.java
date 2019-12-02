@@ -6,12 +6,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class WebdriverSettings {
 	
 	public WebDriver driverSettings() {
-		chrome_options = Options()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
+		
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+	options.addArguments("headless");
+	options.addArguments("no-sandbox");
+	options.addArguments("disable-dev-shm-usage");
+	options.addArguments("window-size=1200x600");
+	WebDriver driver = new ChromeDriver(options);
+		
 		return driver;
 	}
 
